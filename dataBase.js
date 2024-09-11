@@ -1,0 +1,1 @@
+export const err = [{"username":"Sonal Babariya","age":29},{"username":"Sonal Dhaduk","age":28},{"username":"Kaushik Dhaduk","age":29}]
