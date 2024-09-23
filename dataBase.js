@@ -1,1 +1,12 @@
-export const arr = [{"username":"Sonal Babariya","age":29},{"username":"Sonal Dhaduk","age":28},{"username":"Kaushik Dhaduk","age":29}]
+export const arr = [
+  {
+    "username": "Sonal",
+    "email": "sonal@gmail.com",
+    "id": 1726420412021
+  },
+  {
+    "username": "kaushik",
+    "email": "kaushik@gmail.com",
+    "id": 1726456436112
+  }
+]
