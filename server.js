@@ -23,8 +23,13 @@ app.get('/api/getData', (req,res) => {
 app.post('/api/createData', (req,res) => {
     try {
         const {username , email} = req.body
+        const existingUsername = data.find(info => info.username === username)
+        const existingEmail = data.find(info => info.email === email)
+        if (existingUsername || existingEmail) {
+            return res.send({ error: "User already exists!" });
+        }
         data.push({username , email , id: Date.now()})
-        console.log(data);
+        // console.log(data);       
         fs.writeFileSync('./dataBase.js',`export const arr = ${JSON.stringify(data,null,2)}`)
         res.send({message: "Data created Sucessfully!"})
     } catch (error) {
@@ -35,10 +40,7 @@ app.post('/api/createData', (req,res) => {
 app.get('/api/getSingleData/:userId', (req,res) => {
     try {
         const {userId} = req.params
-        console.log(`Received userId: ${userId}`);
-        console.log(data);
         const singleData = data.find(item => item.id === Number(userId))
-        console.log(singleData);  
         if(singleData === undefined){
             return res.send({message: 'user not found!'})
         }
